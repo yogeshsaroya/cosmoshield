@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon"   href="/images/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>cosmoshield</title>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand me-5" href="#"><img src="images/Cosmoshield.png" alt="logo" style="max-height: 32px;" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav  my-2 my-lg-0 w-100 navbar-nav-scroll">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link active" href="wallet.html" >Wallet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="faq.html">FAQ</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Domain Tools</a>
+        </li>
+ <li class="ms-auto nav-item d-flex">
+          <a class="logBtn nav-link clrPurp" href="login.html">Login</a>
+          <a class="logBtn nav-link ms-2 clrgrn" href="register.html">Sign up</a>
+          <a class="logBtn nav-link ms-2 clrltpurp" href="register.html">Logout</a>
+        </li>
+        
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+</header>
+<main class="pb-12">
+   <div class="bg-dark-sec pb-12">
+    <div class="container">
+      <h2 class="text-white"><strong>Wallet</strong></h2>
+    </div>
+   </div>
+
+   <div class="container mt--90 pad2rem dashboardPage">
+      <div class="card   m-auto">
+      <div class="card-body ">
+
+       <p>This page will help you to have an overview about your wallet and to monitor all upcoming
+            unbondings. The time is always displayed in your own local timezone!
+            <br><br>
+            To be able to use our recovery service you will need to add your wallet by importing the seed. We are fully
+            aware that it's against every best practice to enter your seed on a website
+            but it is unfortunately the only way for us to perform the recovery and try to return you your funds. If you
+            have further question about how this page works and what we do with your seed feel free to ask us through
+            the Contact page (chat)!
+            <br><br>
+            After having added your wallet you can add all unbondings by simply pasting in the according address, select the associated wallet and the coin.
+            The unbondings will be parsed automatically from the chain and appear on the page immediately.
+        </p>
+        
+      </div>
+    </div>
+    <!-- end of card -->
+
+    <div class="card mt-3 m--lr">
+      <div class="card-body p-0">        
+        <div class="table-responsive">
+            <table class="table table-border domainTble">
+  <thead>
+    <tr>     
+      <th scope="col">Name</th>
+      <th scope="col" colspan="2">Seed</th>     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>      
+      <td>Keplrapp.net</td>
+      <td>Trying to get my keys</td> 
+      <td><a href="#" class="deleteBtn">Delete</a></td>        
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+      </div>
+    </div> 
+       <!-- end of card -->
+       <div class="card   m-auto mt-3">
+      <div class="card-body">        
+        <form>
+  <div class="mb-2">
+    <label for="identifyWallet" class="form-label">Name to identify this wallet</label>
+    <input type="text" class="form-control" id="identifyWallet" />
+  </div>
+  <div class="mb-2">
+    <label for="SeedPrivateKey" class="form-label">Seed or private key</label>
+    <input type="text" class="form-control" id="SeedPrivateKey" />
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100 mb-2">Save</button>
+</form>
+      </div>
+    </div>
+    <!-- end of card -->
+
+    <div class="card   m-auto mt-3">
+      <div class="card-body">  
+      <h4 class="card-title mb-2">Add Unbondings (Parsed automatically - submission may take some time)</h4>      
+        <form>
+  <div class="mb-2">
+    <label for="addressWallet" class="form-label">Wallet address</label>
+    <input type="text" class="form-control" id="addressWallet" placeholder="Name of wallet added above or the address" />
+  </div>
+  <div class="mb-2">
+    <label for="form_coin" class="form-label">Coin</label>
+    <select id="form_coin" class="form-select"><option value="cosmos">Cosmos</option><option value="juno">Juno</option><option value="secret">Secret</option><option value="akash">Akash</option><option value="agoric">Agoric</option><option value="terraclassic">Luna Classic</option><option value="osmosis">Osmosis</option><option value="evmos">Evmos</option><option value="kujira">Kujira</option><option value="comdex">Comdex</option><option value="sentinel">Sentinel</option><option value="persistence">Persistence</option><option value="stargaze">Stargaze</option><option value="umee">Umee</option><option value="sifchain">Sifchain</option><option value="axelar">Axelar</option><option value="emoney">Emoney</option><option value="stride">Stride</option><option value="gravity">Gravity Bridge</option><option value="cryptoorg">Crypto.org</option><option value="regen">Regen</option><option value="chihuahua">Chihuahua</option><option value="rebus">Rebus</option><option value="orai">Orai</option><option value="assetmantle">AssetMantle</option><option value="teritori">Teritori</option><option value="iris">Iris</option><option value="injective">Injective</option><option value="carbon">Carbon</option><option value="canto">Canto</option></select>
+  </div>
+
+  <div class="mb-2">
+    <label for="form_wallet" class="form-label">Associated key/seed</label>
+    <select id="form_wallet" class="form-select">
+    </select>
+    </div>
+
+  <button type="submit" class="btn btn-primary w-100 mb-2">Save</button>
+</form>
+      </div>
+    </div>
+    <!-- end of card -->
+
+    
+   </div>
+
+</main>
+    
+<footer class="text-center">
+   <p class="mb-0">© 2021 - 2022 Interbloc LLC, All rights reserved.</p>
+</footer>
+
+  <script src="js/jquiry.js"></script>
+    <script src="js/bootstrap.bundle.min.js"> </script>
+    <script src="js/custom.js"> </script>   
+</body>
+
+</html>
