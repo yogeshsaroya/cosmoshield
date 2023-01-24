@@ -43,27 +43,31 @@ class UsersController extends AppController
         parent::beforeFilter($event);
 
         /* https://book.cakephp.org/4/en/controllers/components/authentication.html#AuthComponent::allow */
-        $this->Auth->allow(['index', 'dashboard', 'register', 'resetPassword', 'knowledge', 'login', 'backend', 'logout','setPassword','domains']);
+        $this->Auth->allow(['index', 'dashboard', 'register', 'resetPassword', 'knowledge', 'login', 'backend', 'logout', 'setPassword', 'domains']);
         //$this->Auth->allow();
         // Form helper https://codethepixel.com/tutorial/cakephp/cakephp-4-common-helpers
         /* https://codethepixel.com/tutorial/cakephp/cakephp-4-find-sort-count */
     }
 
-    public function domains($type = null , $domain = null ){
-        if($type == 'whois'){
-            if(!empty($domain)){
+    public function domains($type = null, $domain = null)
+    {
+        if ($type == 'whois') {
+            if (!empty($domain)) {
                 $data = $this->fetchTable('Settings')->findById('1')->firstOrFail();
-                if(isset($data->whois_api_key) && !empty($data->whois_api_key)){
-                    /*
-                $url = 'https://api.ip2whois.com/v2?key='.$data->whois_api_key.'&domain='.$domain;
-                $data = $this->Data->fetch($url);
-                $this->set(compact('data'));
-                */
-                $this->render('whois');
-            }
+                if (isset($data->whois_api_key) && !empty($data->whois_api_key)) {
+
+                    $url = "https://www.whoisxmlapi.com/whoisserver/WhoisService?domainName=$domain&apiKey={$data->whois_api_key}&outputFormat=JSON";
+                    $data = $this->Data->fetch($url);
+                    if( isset($data['WhoisRecord']['registrant']) && !empty($data['WhoisRecord']['registrant']) ){
+                        $this->set(compact('data'));
+                        $this->render('whois');
+                    }else{
+                        return $this->redirect('/domains/whois/');
+                    }
+                    
+                }
             }
         }
-
     }
 
     public function wallet()
@@ -276,7 +280,7 @@ class UsersController extends AppController
         $this->autoRender = false;
         if ($this->request->is('ajax') && !empty($this->request->getData())) {
             $post_data = $this->request->getData();
-            
+
             if (empty($post_data['reset_password_key'])) {
                 echo '<div class="alert bg-danger">Error. Please check reset password link.</div>';
             }
@@ -348,12 +352,12 @@ class UsersController extends AppController
     {
         if (!empty($to) && !empty($subject) && !empty($body)) {
             $data = $this->fetchTable('Settings')->findById('1')->firstOrFail();
-            if(!empty($data)){
-                if(!empty($data->email_address) && !empty($data->email_password) && !empty($data->email_host) && !empty($data->email_port)){
+            if (!empty($data)) {
+                if (!empty($data->email_address) && !empty($data->email_password) && !empty($data->email_host) && !empty($data->email_port)) {
                     TransportFactory::setConfig('Manual', [
                         /*'className' => 'Debug', 'auth' => true, */
-                        'className' => 'Smtp', 'tls' => true, 
-                        'port' => $data->email_port, 'host' => $data->email_host, 'username' =>$data->email_address, 'password' => $data->email_password
+                        'className' => 'Smtp', 'tls' => true,
+                        'port' => $data->email_port, 'host' => $data->email_host, 'username' => $data->email_address, 'password' => $data->email_password
                     ]);
                     $mailer = new Mailer('default');
                     $mailer->setTransport('Manual');
@@ -372,9 +376,15 @@ class UsersController extends AppController
                     } else {
                         $msg = ['status' => 2, 'msg' => 'Email address is not valid.'];
                     }
-                }else { $msg = ['status' => 2, 'msg' => 'Error']; }
-            }else { $msg = ['status' => 2, 'msg' => 'Error']; }
-        } else { $msg = ['status' => 2, 'msg' => 'Error']; }
+                } else {
+                    $msg = ['status' => 2, 'msg' => 'Error'];
+                }
+            } else {
+                $msg = ['status' => 2, 'msg' => 'Error'];
+            }
+        } else {
+            $msg = ['status' => 2, 'msg' => 'Error'];
+        }
         return $msg;
     }
 

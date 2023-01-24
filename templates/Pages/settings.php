@@ -63,7 +63,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col-md-3 col-12 form-group mb-2"><?= $this->Form->control('whois_api_key', ['label' => ['escape' => false, 'text' => 'DOMAIN WHOIS API Key <small>(From ip2location.io)</small>'], 'class' => 'form-control', 'required' => true]); ?><div class="help-block with-errors"></div>
+                                                        <div class="col-md-3 col-12 form-group mb-2"><?= $this->Form->control('whois_api_key', ['label' => ['escape' => false, 'text' => 'DOMAIN WHOIS API Key <small>(From whoisxmlapi.com)</small>'], 'class' => 'form-control', 'required' => true]); ?><div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>

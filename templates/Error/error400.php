@@ -1,41 +1,31 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \Cake\Database\StatementInterface $error
- * @var string $message
- * @var string $url
- */
-use Cake\Core\Configure;
-use Cake\Error\Debugger;
+<style>
+        body {
+            background-color: #fff;
+            color: #222;
+            font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+        }
 
-$this->layout = 'error';
+        .container {
+            margin: 30px;
+            max-width: 600px;
+        }
 
-if (Configure::read('debug')) :
-    $this->layout = 'dev_error';
+        h1 {
+            color: #dc3545;
+            font-size: 24px;
+        }
 
-    $this->assign('title', $message);
-    $this->assign('templateName', 'error400.php');
+        h2 {
+            font-size: 18px;
+        }
+    </style>
+    <div class="container">
+        <h1>Oops! An Error Occurred</h1>
+        <h2>The server returned a "404 Not Found".</h2>
 
-    $this->start('file');
-?>
-<?php if (!empty($error->queryString)) : ?>
-    <p class="notice">
-        <strong>SQL Query: </strong>
-        <?= h($error->queryString) ?>
-    </p>
-<?php endif; ?>
-<?php if (!empty($error->params)) : ?>
-        <strong>SQL Query Params: </strong>
-        <?php Debugger::dump($error->params) ?>
-<?php endif; ?>
-<?= $this->element('auto_table_warning') ?>
-<?php
-
-$this->end();
-endif;
-?>
-<h2><?= h($message) ?></h2>
-<p class="error">
-    <strong><?= __d('cake', 'Error') ?>: </strong>
-    <?= __d('cake', 'The requested address {0} was not found on this server.', "<strong>'{$url}'</strong>") ?>
-</p>
+        <p>
+            Something is broken. Please let us know what you were doing when this error occurred.
+            We will fix it as soon as possible. Sorry for any inconvenience caused.
+        </p>
+    </div>
