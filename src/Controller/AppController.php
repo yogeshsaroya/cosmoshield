@@ -72,7 +72,7 @@ class AppController extends Controller
         /* Redirect to www and https */
         $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-        if (in_array($_SERVER['SERVER_NAME'], ['whitefield.webfilter.school', 'www.whitefield.webfilter.school'])) {
+        if (in_array($_SERVER['SERVER_NAME'], ['abc.com', 'www.abc.com'])) {
             if ($this->request->getParam('controller') != 'crons') {
                 $pos = strpos($url, 'www');
                 if ($pos === true) {
