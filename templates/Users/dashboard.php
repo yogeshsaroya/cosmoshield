@@ -79,8 +79,8 @@ $auth = $this->request->getSession()->read('Auth.User');
     <!-- end of card -->
     <div class="card   m-auto mt-3">
       <div class="card-body link-inherit">
-        <h4 class="card-title mb-2">About the Cosmoshield Scam Blacklist</h4>
-        <p>The Scam Blacklist contains all fraudulent websites that have been detected through our monitoring or by user reports. The blacklist itself is updated multiple times a week and syncronised with the Keplr <a href="https://github.com/chainapsis/phishing-block-list">Phishing block list</a>. The Keplr Phishing black list is a joint effort between Chainapsis and Cosmoshield to prevent scams before they happen.
+        <h4 class="card-title mb-2">About the CosmoRecovery Scam Blacklist</h4>
+        <p>The Scam Blacklist contains all fraudulent websites that have been detected through our monitoring or by user reports. The blacklist itself is updated multiple times a week and syncronised with the Keplr <a href="https://github.com/chainapsis/phishing-block-list">Phishing block list</a>. The Keplr Phishing black list is a joint effort between Chainapsis and CosmoRecovery to prevent scams before they happen.
           <br><br>
           If you want to integrate the Blacklist into your project you can do so by using the github repository or our API which comes with more features like a search and pagination. If you need a custom solution feel free to reach out to us and we'll do our best to help you.
         </p>

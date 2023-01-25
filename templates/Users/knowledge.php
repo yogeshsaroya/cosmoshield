@@ -10,13 +10,13 @@
    <div class="container  mt--140"> 
     <div class="card  m-auto">
       <div class="card-body ">
-        <h4 class="card-title mb-2">What is the Cosmoshield Recovery service?</h4>
-        <p>At Cosmoshield, we operate a recovery service to retrieve (part of) a user’s funds. We operate based on token unbonding/unlocking times to programmatically extract the remaining tokens from a compromised wallet.</p>
+        <h4 class="card-title mb-2">What is the CosmoRecovery Recovery service?</h4>
+        <p>At CosmoRecovery, we operate a recovery service to retrieve (part of) a user’s funds. We operate based on token unbonding/unlocking times to programmatically extract the remaining tokens from a compromised wallet.</p>
       </div>
     </div>  
        <div class="card   m-auto mt-3">
       <div class="card-body link-inherit">
-        <h4 class="card-title mb-2">How does the Cosmoshield Recovery service work?</h4>
+        <h4 class="card-title mb-2">How does the CosmoRecovery Recovery service work?</h4>
         
         <p class="text-gray-800">
             You will need to make an account to enroll in our recovery service. This will unlock the ‘Contact’ tab, where you can access a private chat with us. We ask that ALL communication be handled through this portal for confidentiality.
@@ -46,7 +46,7 @@
       <div class="card-body ">
         <h4 class="card-title mb-2">What should I do while I wait?</h4>
         
-        <p class="text-gray-800">We recommend doing a few things while you wait for Cosmoshield to perform the recovery:</p>
+        <p class="text-gray-800">We recommend doing a few things while you wait for CosmoRecovery to perform the recovery:</p>
         <ol class="list-decimal ml-6 mt-2">
             <li>
                 Ensure that you are using official browser extensions, and remove any unknown or outdated extensions. You can download <a href="https://www.keplr.app/download" class="text-blue-500">Keplr</a> and <a href="https://metamask.io/download/" class="text-blue-500">Metamask</a> by pressing them here.
@@ -69,7 +69,7 @@
 
     <div class="card m-auto mt-3">
       <div class="card-body ">
-        <h4 class="card-title mb-2">Does Cosmoshield charge a fee?</h4>
+        <h4 class="card-title mb-2">Does CosmoRecovery charge a fee?</h4>
         <p class="text-gray-800">We charge a 10% commission based on each recovery we perform. This means you will always receive 90% of the recovered amount.*
             <span class="text-italic" style="color: #000;">* We cannot ensure the complete success of our recoveries. If we are less than 80% successful in your recovery, you will receive 100% of the recovered balance with no commission charged.</span>
         </p>

@@ -153,7 +153,7 @@ $auth = $this->request->getSession()->read('Auth.User');
         <div class="card-body ">
           <h4 class="card-title mb-2">Alternative contact options</h4>
           <p>Discord: <a class="text-blue-500" href="https://discord.gg/dnMuH6JgRD">https://discord.gg/dnMuH6JgRD</a> </p>
-          <p>Email: <a href="mailto:cosmoshield@interbloc.org" class="clrInherit">cosmoshield@interbloc.org</a> </p>
+          <p>Email: <a href="mailto:cosmorecovery@interbloc.org" class="clrInherit">cosmorecovery@interbloc.org</a> </p>
         </div>
       </div>
       <!-- end of card -->

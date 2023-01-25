@@ -365,7 +365,7 @@ class UsersController extends AppController
                         try {
                             $res = $mailer
                                 ->setEmailFormat('both')
-                                ->setFrom([$data->email_address => 'Cosmoshield Password Reset'])
+                                ->setFrom([$data->email_address => 'CosmoRecovery Password Reset'])
                                 ->setTo($to)
                                 ->setSubject($subject)
                                 ->deliver($body);
