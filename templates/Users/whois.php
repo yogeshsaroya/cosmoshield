@@ -239,7 +239,7 @@ $this->assign('title', $data['domainName'] . ' | ' . env('APP_NAME'));
     <!-- end of card -->
 
     <div class="text-center p-3 mt-2">
-      <?= $this->html->link('Back to Search', '/domains/whois/',['class'=>'clrVeg']); ?>
+      <?= $this->Html->link('Back to Search', '/domains/whois/',['class'=>'clrVeg']); ?>
     </div>
   </div>
 

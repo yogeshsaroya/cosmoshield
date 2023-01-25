@@ -41,7 +41,7 @@
                                                 <td><?= $list->email; ?></td>
                                                 <td><?= $list->username; ?></td>
                                                 <td><?= $last_msg; ?></td>
-                                                <td><?= $this->html->link('View','/pages/chat/'.$list->id,['class'=>'btn btn-outline-dark']); ?></td>
+                                                <td><?= $this->Html->link('View','/pages/chat/'.$list->id,['class'=>'btn btn-outline-dark']); ?></td>
                                                 
                                             </tr>
                                     <?php }

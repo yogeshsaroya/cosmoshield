@@ -29,10 +29,10 @@ $auth = $this->request->getSession()->read('Auth.User');
 
           <li class="ms-auto nav-item d-flex">
             <?php if (isset($auth->username)) {
-              echo $this->html->link('Logout', '/users/logout', ['class' => 'logBtn nav-link ms-2 clrltpurp']);
+              echo $this->Html->link('Logout', '/users/logout', ['class' => 'logBtn nav-link ms-2 clrltpurp']);
             } else {
-              echo $this->html->link('Login', '/login', ['class' => 'logBtn nav-link clrPurp']);
-              echo $this->html->link('Sign up', '/register', ['class' => 'logBtn nav-link ms-2 clrgrn']);
+              echo $this->Html->link('Login', '/login', ['class' => 'logBtn nav-link clrPurp']);
+              echo $this->Html->link('Sign up', '/register', ['class' => 'logBtn nav-link ms-2 clrgrn']);
             } ?>
           </li>
 

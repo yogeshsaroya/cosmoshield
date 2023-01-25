@@ -44,7 +44,7 @@ $auth = $this->request->getSession()->read('Auth.User');
               if (!$data->isEmpty()) {
                 foreach ($data as $list) {  ?>
                   <tr>
-                    <td><?= $this->html->link($list->domain,'/domains/whois/'.$list->domain); ?></td>
+                    <td><?= $this->Html->link($list->domain,'/domains/whois/'.$list->domain); ?></td>
                     <td><?= $list->reason; ?></td>
                     <td class="
                     <?php
