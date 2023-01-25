@@ -470,7 +470,7 @@ class UsersController extends AppController
                     if (password_verify($pwd, $verify->password)) {
                         $this->Auth->setUser($verify);
                         $q_url = SITEURL . "pages";
-                        echo '<script>window.location.href = "' . $q_url . '"</script>';
+                        echo '<script>$("#login_sbtn").remove();window.location.href = "' . $q_url . '"</script>';
                         exit;
                     } else {
                         echo $s;
