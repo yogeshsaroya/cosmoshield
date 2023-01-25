@@ -206,7 +206,7 @@ class UsersController extends AppController
             }
 
             if (isset($settings->hcaptcha_secret) && !empty($settings->hcaptcha_secret)) {
-                if (isset($post_data['hcaptchaVal']) && !empty($post_data['hcaptchaVal'])) {
+                if (isset($post_data['h-captcha-response']) && !empty($post_data['h-captcha-response'])) {
                     $verifyResponse = file_get_contents('https://hcaptcha.com/siteverify?secret=' . $settings->hcaptcha_secret . '&response=' . $post_data['hcaptchaVal'] . '&remoteip=' . $_SERVER['REMOTE_ADDR']);
                     $responseData = json_decode($verifyResponse);
                     if ($responseData->success) {
@@ -228,6 +228,9 @@ class UsersController extends AppController
                             echo '<script>$("#login_sbtn").remove(); location.reload(); </script>';
                         }
                     }
+                } else {
+                    echo "<div class='alert bg-danger'>Invalid Captcha</div>";
+                    exit;
                 }
             } else {
                 echo "<div class='alert bg-danger'>Invalid Captcha</div>";
