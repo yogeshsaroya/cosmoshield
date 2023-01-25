@@ -130,6 +130,7 @@ if (isset($settings->hcaptcha_sitekey) && !empty($settings->hcaptcha_sitekey)) {
 
     <?php if (isset($settings->hcaptcha_sitekey) && !empty($settings->hcaptcha_sitekey)) { ?>
       $("#login_sbtn").click(function() {
+        $('#f_err').html('');
         var hcaptchaVal = $('[name=h-captcha-response]').val();
         if (hcaptchaVal === "") {
           $('#f_err').html('<div class="alert alert-danger">Please complete the hCaptcha</div>');
