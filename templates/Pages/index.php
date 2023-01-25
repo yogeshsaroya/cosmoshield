@@ -28,6 +28,7 @@
                                         <th><?php echo $this->Paginator->sort('email'); ?></th>
                                         <th><?php echo $this->Paginator->sort('status'); ?></th>
                                         <th><?php echo $this->Paginator->sort('created'); ?></th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,6 +41,7 @@
                                                 <td><?php echo $list->email; ?></td>
                                                 <td><?= $this->Form->control('status', ['data-id' => $list->id, 'default' => $list->status, 'label' => false, 'options' => ['1' => 'In progress', '2' => 'Fraudulent', '3' => 'No fraud detected'], 'class' => 'form-control st']); ?></td>
                                                 <td><?php echo $list->created->format('Y-m-d H:i:s'); ?></td>
+                                                <td><?= $this->Html->link('Delete', SITEURL . "pages/?del=" . $list->id, ['escape' => false, 'class' => 'btn btn-outline-primary btn-block mb-75', 'onclick' => "return confirm('Are you sure you want to delete?')"]); ?></td>
                                             </tr>
                                     <?php }
                                     } ?>

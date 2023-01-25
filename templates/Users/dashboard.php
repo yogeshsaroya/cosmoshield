@@ -1,6 +1,11 @@
 <?php $this->assign('title', 'Dashboard | ' . env('APP_NAME'));
 $auth = $this->request->getSession()->read('Auth.User');
+if (isset($settings->hcaptcha_sitekey) && !empty($settings->hcaptcha_sitekey)) {
+  echo $this->Html->script(['https://www.hCaptcha.com/1/api.js'], ['block' => 'scriptBottom', 'async', 'defer']);
+}
 ?>
+
+
 <main class="pb-12">
   <div class="bg-dark-sec pb-12">
     <div class="container">
@@ -21,7 +26,15 @@ $auth = $this->request->getSession()->read('Auth.User');
           <div class="mb-2 form-group"><?= $this->Form->control('email', ['label' => 'Email (Optional)', 'type' => 'email', 'class' => 'form-control', 'required' => false, 'autocomplete' => 'new-email']); ?></div>
         <?php } ?>
 
-        <div class="mb-2"><div id="f_err"></div></div>
+        <?php if (isset($settings->hcaptcha_sitekey) && !empty($settings->hcaptcha_sitekey)) { ?>
+          <div class="mb-2">
+            <div class="h-captcha" data-sitekey="<?= $settings->hcaptcha_sitekey; ?>"></div>
+          </div>
+        <?php } ?>
+
+        <div class="mb-2">
+          <div id="f_err"></div>
+        </div>
         <input type="button" class="btn btn-primary w-100 mb-2" value="Report" id="login_sbtn">
         <?php echo $this->Form->end(); ?>
       </div>
@@ -44,7 +57,7 @@ $auth = $this->request->getSession()->read('Auth.User');
               if (!$data->isEmpty()) {
                 foreach ($data as $list) {  ?>
                   <tr>
-                    <td><?= $this->Html->link($list->domain,'/domains/whois/'.$list->domain); ?></td>
+                    <td><?= $this->Html->link($list->domain, '/domains/whois/' . $list->domain); ?></td>
                     <td><?= $list->reason; ?></td>
                     <td class="
                     <?php
@@ -115,28 +128,62 @@ $auth = $this->request->getSession()->read('Auth.User');
       successClass: true,
     });
 
+    <?php if (isset($settings->hcaptcha_sitekey) && !empty($settings->hcaptcha_sitekey)) { ?>
+      $("#login_sbtn").click(function() {
+        var hcaptchaVal = $('[name=h-captcha-response]').val();
+        if (hcaptchaVal === "") {
+          $('#f_err').html('<div class="alert alert-danger">Please complete the hCaptcha</div>');
+        } else {
+          $("#e_frm").ajaxForm({
+            target: '#f_err',
+            headers: {
+              'X-CSRF-Token': $('[name="_csrfToken"]').val()
+            },
+            beforeSubmit: function() {
+              $("#login_sbtn").prop("disabled", true);
+              $("#login_sbtn").val('Please wait..');
+            },
+            success: function(response) {
+              $("#login_sbtn").prop("disabled", false);
+              $("#login_sbtn").val('Report');
+            },
+            error: function(response) {
+              $('#f_err').html('<div class="alert alert-danger">Sorry, this is not working at the moment. Please try again later.</div>');
+              $("#login_sbtn").prop("disabled", false);
+              $("#login_sbtn").val('Report');
+            },
+          }).submit();
+        }
 
-    $("#login_sbtn").click(function() {
-      $("#e_frm").ajaxForm({
-        target: '#f_err',
-        headers: {
-          'X-CSRF-Token': $('[name="_csrfToken"]').val()
-        },
-        beforeSubmit: function() {
-          $("#login_sbtn").prop("disabled", true);
-          $("#login_sbtn").val('Please wait..');
-        },
-        success: function(response) {
-          $("#login_sbtn").prop("disabled", false);
-          $("#login_sbtn").val('Report');
-        },
-        error: function(response) {
-          $('#f_err').html('<div class="alert alert-danger">Sorry, this is not working at the moment. Please try again later.</div>');
-          $("#login_sbtn").prop("disabled", false);
-          $("#login_sbtn").val('Report');
-        },
-      }).submit();
-    });
+      });
+    <?php } else { ?>
+      $("#login_sbtn").click(function() {
+
+        $("#e_frm").ajaxForm({
+          target: '#f_err',
+          headers: {
+            'X-CSRF-Token': $('[name="_csrfToken"]').val()
+          },
+          beforeSubmit: function() {
+            $("#login_sbtn").prop("disabled", true);
+            $("#login_sbtn").val('Please wait..');
+          },
+          success: function(response) {
+            $("#login_sbtn").prop("disabled", false);
+            $("#login_sbtn").val('Report');
+          },
+          error: function(response) {
+            $('#f_err').html('<div class="alert alert-danger">Sorry, this is not working at the moment. Please try again later.</div>');
+            $("#login_sbtn").prop("disabled", false);
+            $("#login_sbtn").val('Report');
+          },
+        }).submit();
+
+
+      });
+    <?php } ?>
+
+
   });
 </script>
 <?php $this->end();  ?>

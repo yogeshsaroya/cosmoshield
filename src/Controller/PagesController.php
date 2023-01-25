@@ -40,6 +40,13 @@ class PagesController extends AppController
     public function index()
     {
         $menu_act = 'index';
+        if ($this->request->getQuery('del')  && !empty($this->request->getQuery('del'))) {
+            $row = $this->fetchTable('Reports')->findById($this->request->getQuery('del'))->firstOrFail();
+            if ($this->fetchTable('Reports')->delete($row)) {
+            }
+            $this->redirect('/pages');
+        }
+
         $this->paginate = ['limit' => 100, 'order' => ['id' => 'desc']];
         $data = $this->paginate($this->fetchTable('Reports')->find('all'));
         $this->set(compact('data'));
