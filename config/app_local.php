@@ -27,10 +27,11 @@ return [
     'Security' => [
         'salt' => env('SECURITY_SALT', 'e0bada5423e86d0be202eebc828947354wesdf87df2184f11f766c7fc6d88df0f2bfb4d'),
     ],
+    /*
     'Asset' => [
         'timestamp' => true,
         'cacheTime' => '+1 month'
-    ],
+    ],*/
 
     /*
      * Connection information used by the ORM to connect
