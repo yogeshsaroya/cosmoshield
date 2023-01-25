@@ -207,7 +207,7 @@ class UsersController extends AppController
 
             if (isset($settings->hcaptcha_secret) && !empty($settings->hcaptcha_secret)) {
                 if (isset($post_data['h-captcha-response']) && !empty($post_data['h-captcha-response'])) {
-                    $verifyResponse = file_get_contents('https://hcaptcha.com/siteverify?secret=' . $settings->hcaptcha_secret . '&response=' . $post_data['hcaptchaVal'] . '&remoteip=' . $_SERVER['REMOTE_ADDR']);
+                    $verifyResponse = file_get_contents('https://hcaptcha.com/siteverify?secret=' . $settings->hcaptcha_secret . '&response=' . $post_data['h-captcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR']);
                     $responseData = json_decode($verifyResponse);
                     if ($responseData->success) {
 
