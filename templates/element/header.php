@@ -13,9 +13,12 @@ $auth = $this->request->getSession()->read('Auth.User');
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav  my-2 my-lg-0 w-100 navbar-nav-scroll">
-          <li class="nav-item">
-            <a class="nav-link <?= ($this->request->getParam('action') == 'dashboard' ? 'active' : null); ?>" aria-current="page" href="<?= SITEURL; ?>dashboard">Dashboard</a>
-          </li>
+        <?php if (!isset($auth->username)) { ?>
+          <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= SITEURL; ?>login">Dashboard</a></li>
+          <?php }?>
+          
+          <li class="nav-item"><a class="nav-link <?= ($this->request->getParam('action') == 'dashboard' ? 'active' : null); ?>" aria-current="page" href="<?= SITEURL; ?>dashboard">Report Website</a></li>
+          
           <li class="nav-item">
             <a class="nav-link <?= ($this->request->getParam('action') == 'contact' ? 'active' : null); ?>" href="<?= SITEURL; ?>contact">Contact</a>
           </li>
