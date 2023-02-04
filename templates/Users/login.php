@@ -15,7 +15,7 @@
           <a href="<?= SITEURL ?>reset-password" class="linkTxt">Forgot your password?</a>
         </div>
         <input type="button" class="btn btn-primary w-100 mb-2" value="Sign in" id="login_sbtn">
-        <a href="<?= SITEURL ?>register" class="btn btn-success w-100">Sign up instead</a>
+        <a href="<?= SITEURL ?>register" class="btn btn-secondary w-100">Sign up instead</a>
         <?php echo $this->Form->end(); ?>
       </div>
     </div>

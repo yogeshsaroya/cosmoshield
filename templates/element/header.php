@@ -31,8 +31,8 @@ $auth = $this->request->getSession()->read('Auth.User');
             <?php if (isset($auth->username)) {
               echo $this->Html->link('Logout', '/users/logout', ['class' => 'logBtn nav-link ms-2 clrltpurp']);
             } else {
-              echo $this->Html->link('Login', '/login', ['class' => 'logBtn nav-link clrPurp']);
-              echo $this->Html->link('Sign up', '/register', ['class' => 'logBtn nav-link ms-2 clrgrn']);
+              echo $this->Html->link('Login', '/login', ['class' => 'btn btn-primary nav-link ']);
+              echo $this->Html->link('Sign up', '/register', ['class' => 'btn btn-secondary nav-link ms-2 ']);
             } ?>
           </li>
 

@@ -155,18 +155,13 @@ header .navbar-nav .nav-item > .nav-link:focus{
     padding: 0;
 }
 .linkTxt {
-    color: rgb(99, 102, 241);
+    color: blue;
     text-decoration: none;
     font-weight: 500;
     font-size: .975rem;
     line-height: 1.25rem;
 }
-.btn-primary{
-    background: rgb(79, 70, 229);
-}
-.btn-primary:hover{
-    background: rgb(67, 56, 202);
-}
+
 .btn-success{
     background: rgb(34, 197, 94);
 }

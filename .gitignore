@@ -1,3 +1,4 @@
 /tmp/*
 /logs/*
-!/logs/empty
+
+config/.env
