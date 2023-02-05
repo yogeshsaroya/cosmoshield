@@ -16,20 +16,11 @@ $auth = $this->request->getSession()->read('Auth.User');
         <?php if (!isset($auth->username)) { ?>
           <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= SITEURL; ?>login">Dashboard</a></li>
           <?php }?>
-          
+          <li class="nav-item"><a class="nav-link <?= ($this->request->getParam('action') == 'wallet' ? 'active' : null); ?>" href="<?= SITEURL; ?>wallet">My Wallet</a></li>
           <li class="nav-item"><a class="nav-link <?= ($this->request->getParam('action') == 'dashboard' ? 'active' : null); ?>" aria-current="page" href="<?= SITEURL; ?>dashboard">Report Website</a></li>
-          
-          <li class="nav-item">
-            <a class="nav-link <?= ($this->request->getParam('action') == 'contact' ? 'active' : null); ?>" href="<?= SITEURL; ?>contact">Contact</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link <?= ($this->request->getParam('action') == 'wallet' ? 'active' : null); ?>" href="<?= SITEURL; ?>wallet">Wallet</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?= ($this->request->getParam('action') == 'knowledge' ? 'active' : null); ?>" href="<?= SITEURL; ?>knowledge">FAQ</a>
-          </li>
-
+          <li class="nav-item"><a class="nav-link <?= ($this->request->getParam('action') == 'wallet' ? 'active' : null); ?>" href="<?= SITEURL; ?>domains/whois">Domain Tools</a></li>
+          <li class="nav-item"><a class="nav-link <?= ($this->request->getParam('action') == 'knowledge' ? 'active' : null); ?>" href="<?= SITEURL; ?>knowledge">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link <?= ($this->request->getParam('action') == 'contact' ? 'active' : null); ?>" href="<?= SITEURL; ?>contact">Contact Us</a></li>
           <li class="ms-auto nav-item d-flex">
             <?php if (isset($auth->username)) {
               echo $this->Html->link('Logout', '/users/logout', ['class' => 'logBtn nav-link ms-2 clrltpurp']);
