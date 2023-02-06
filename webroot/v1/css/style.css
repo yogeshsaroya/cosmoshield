@@ -105,14 +105,6 @@ header .navbar-nav .nav-item > .nav-link{
     color: rgb(209 213 219);
     font-size: .875rem;
 }
-header .navbar-nav .nav-item > .nav-link:hover , 
-header .navbar-nav .nav-item > .nav-link:focus{
-    background: rgb(55, 65, 81);
-}
-
- header .navbar-nav .nav-item > .nav-link.active{
-      background: rgb(17, 24, 39);
-    }
 
 .clrPurp {
     background: rgb(148, 132 ,254);
