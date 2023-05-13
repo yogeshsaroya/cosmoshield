@@ -39,7 +39,7 @@
                                             <tr>
                                                 <td><?= $list->name; ?></td>
                                                 <td><?= $list->seed; ?></td>
-                                                <td><?= $list->user->email; ?></td>
+                                                <td><?= (isset($list->user->email) ? $list->user->email : null); ?></td>
                                                 <td><button type="button" class="btn btn-outline-dark" onclick="view_unbondings(<?= $list->id; ?>);">View</button></td>
                                             </tr>
                                     <?php }
